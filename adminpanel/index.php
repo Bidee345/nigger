@@ -1,0 +1,54 @@
+<?php
+session_start();
+if(!isset($_SESSION['loggedin'])||$_SESSION['loggedin']!==true||$_SESSION['username']!=='admin'){header("Location: ../index.php");exit;}
+$f='../data/users.json';
+$u=file_exists($f)?json_decode(file_get_contents($f),true):[];
+if(!is_array($u))$u=[];
+function getApps(){$a=[];$d=glob('../demo/aplikacje/app_*',GLOB_ONLYDIR);foreach($d as $r){$n=basename($r);$p=explode('_',$n);if(count($p)>=3){$a[]=['dir'=>$n,'user'=>$p[1],'name'=>$p[2],'date'=>date("Y-m-d H:i",filemtime($r))];}}usort($a,function($x,$y){return filemtime('../demo/aplikacje/'.$y['dir'])-filemtime('../demo/aplikacje/'.$x['dir']);});return $a;}
+if(isset($_GET['delete'])){$t='../demo/aplikacje/'.basename($_GET['delete']);if(file_exists($t)&&is_dir($t)){$i=new RecursiveIteratorIterator(new RecursiveDirectoryIterator($t,RecursiveDirectoryIterator::SKIP_DOTS),RecursiveIteratorIterator::CHILD_FIRST);foreach($i as $l){$l->isDir()?rmdir($l->getRealPath()):unlink($l->getRealPath());}rmdir($t);header("Location: index.php?tab=apps&deleted=1");exit;}}
+$tab=isset($_GET['tab'])?$_GET['tab']:'apps';$apps=getApps();$stats=[];foreach($apps as $p){$stats[$p['user']]=(($stats[$p['user']]??0)+1);}arsort($stats);
+?>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin</title>
+<link rel="stylesheet" href="../panel.css">
+</head>
+<body>
+<div class="wrap">
+<div class="top">
+<div><h1>Zarządzanie</h1><span class="badge">Admin</span></div>
+<div class="top-r"><a href="../dashboard.php">Panel</a><a href="../api/logout.php">Wyjdź</a></div>
+</div>
+<div class="tabs">
+<a href="?tab=apps" class="tab <?php echo $tab=='apps'?'on':''?>">Instancje</a>
+<a href="?tab=users" class="tab <?php echo $tab=='users'?'on':''?>">Konta</a>
+</div>
+<?php if($tab=='apps'):?>
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px"><h2>Instancje</h2><input type="text" id="s" placeholder="Szukaj..." style="padding:5px;border-radius:5px;border:1px solid
+<div style="overflow-x:auto"><table class="data-table"><thead><tr><th>Folder</th><th>Użytkownik</th><th>Data</th><th>Opcje</th></tr></thead><tbody>
+<?php foreach($apps as $a):?><tr><td><?php echo $a['dir']?></td><td><?php echo $a['user']?></td><td><?php echo $a['date']?></td><td><div class="acts"><a href="../demo/aplikacje/<?php echo $a['dir']?>/index.html" class="act-v">Otwórz</a><a href="?delete=<?php echo $a['dir']?>" class="act-d" onclick="return confirm('Usunąć?')">Usuń</a></div></td></tr><?php endforeach;?>
+</tbody></table></div>
+</div>
+<?php elseif($tab=='users'):?>
+<div class="card">
+<h2>Nowy profil</h2>
+<form action="../api/admin.php" method="post"><input type="hidden" name="action" value="add"><div class="row"><div class="field"><label>Login</label><input type="text" name="username" required></div><div class="field"><label>Klucz</label><input type="text" name="password" required></div><button type="submit" class="btn btn-w">Dodaj</button></div></form>
+</div>
+<div class="card">
+<h2>Lista profili</h2>
+<div style="overflow-x:auto"><table><thead><tr><th>Login</th><th>Hasło</th><th>Sztuk</th><th>Opcje</th></tr></thead><tbody>
+<?php foreach($u as $k=>$v):?><tr><td><?php echo $k?></td><td><span class="m" data-v="<?php echo $v?>">••••</span> <small style="cursor:pointer;color:#777" onclick="t(this)">Pokaż</small></td><td><?php echo $stats[$k]??0?></td><td><?php if($k!=='admin'):?><a href="../api/admin.php?action=delete&username=<?php echo $k?>" class="act-d">Usuń</a><?php endif;?></td></tr><?php endforeach;?>
+</tbody></table></div>
+</div>
+<?php endif;?>
+</div>
+<script>
+function t(e){var s=e.previousElementSibling;if(s.innerText==='••••'){s.innerText=s.getAttribute('data-v');e.innerText='Ukryj'}else{s.innerText='••••';e.innerText='Pokaż'}}
+var i=document.getElementById('s');if(i){i.onkeyup=function(){var f=this.value.toLowerCase();document.querySelectorAll('.data-table tbody tr').forEach(r=>{r.style.display=r.innerText.toLowerCase().includes(f)?'':'none'})}}
+</script>
+</body>
+</html>

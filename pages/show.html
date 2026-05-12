@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <meta charset="utf-8"/>
+  <title>mObywatel</title>
+  <meta content="no-cache, no-store, must-revalidate" http-equiv="Cache-Control"/>
+  <meta content="no-cache" http-equiv="Pragma"/>
+  <meta content="0" http-equiv="Expires"/>
+  <link href="../../../assets/css/main.css" rel="stylesheet"/>
+  <link href="../../../assets/css/show.css" rel="stylesheet"/>
+  <link href="../../../assets/img/favicon.png" rel="icon" type="image/x-icon"/>
+  <link href="../../../assets/img/favicon.png" rel="apple-touch-icon"/>
+  <link href="../../../assets/img/favicon.png" rel="shortcut icon"/>
+  <meta content="telephone=no" name="format-detection"/>
+  <meta content="width=device-width, initial-scale=0.8, user-scalable=no" name="viewport"/>
+  <meta content="yes" name="mobile-web-app-capable"/>
+ </head>
+ <body>
+  <div class="top_grid_fixed">
+   <div class="action_grid_fixed">
+    <img class="back_img" src="../../../assets/img/back-blue.png"/>
+    <p class="back_text" onclick="go('qr')">Kod QR</p>
+   </div>
+   <p class="title_text_fixed">Kod QR</p>
+   <img class="help_img" src="../../../assets/img/help.png"/>
+  </div>
+  <div class="bottom_bar">
+   <div class="bottom_bar_grid">
+    <div class="bottom_element_grid" send="home">
+     <div class="bottom_element_image home"></div>
+     <p class="bottom_element_text">Dokumenty</p>
+    </div>
+    <div class="bottom_element_grid" send="services">
+     <div class="bottom_element_image services"></div>
+     <p class="bottom_element_text">Usługi</p>
+    </div>
+    <div class="bottom_element_grid" send="qr">
+     <div class="bottom_element_image qr_open qr"></div>
+     <p class="bottom_element_text open">Kod QR</p>
+    </div>
+    <div class="bottom_element_grid" send="more">
+     <div class="bottom_element_image more"></div>
+     <p class="bottom_element_text">Więcej</p>
+    </div>
+   </div>
+  </div>
+  <div class="container">
+   <p class="show_title">Pokaż kod QR</p>
+   <p class="show_description">Poproś osobę, której sprawdzasz dokument, aby zeskanowała lub przepisała ten kod w swojej aplikacji mObywatel.</p>
+   <div class="frame">
+    <div class="qr_image"></div>
+    <p class="numbers"></p>
+    <div class="loading">
+     <div class="loading_bar" style="width: 100%;"></div>
+    </div>
+    <p class="expire">
+     <span class="expire_light">Kod wygaśnie za:</span>
+     <span class="expire_highlight">3 min 0 sek.</span>
+    </p>
+   </div>
+   <div class="frame bottom_frame">
+    <img class="frame_image" src="../../../assets/img/pl-flag.png"/>
+    <img class="frame_image" src="../../../assets/img/holo.webp"/>
+   </div>
+  </div>
+  <script src="../../../assets/js/qrgen.js"></script>
+  <script src="../../../assets/js/nav.js"></script>
+  <script src="../../../assets/js/show.js"></script>
+  <script src="../../../assets/js/manifest.js"></script>
+  <script src="../../../assets/js/session.js"></script>
+ </body>
+</html>

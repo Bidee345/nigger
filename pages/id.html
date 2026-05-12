@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+ <title>mObywatel</title>
+ <meta charset="utf-8"/>
+ <meta name="format-detection" content="telephone=no"/>
+ <meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no"/>
+ <meta name="mobile-web-app-capable" content="yes"/>
+ <meta name="apple-mobile-web-app-capable" content="yes"/>
+ <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+ <meta name="theme-color" content="#121212"/>
+ <link href="../../../assets/img/favicon.png" rel="icon" type="image/x-icon"/>
+ <link href="../../../assets/img/favicon.png" rel="apple-touch-icon"/>
+ <link href="../../../assets/img/favicon.png" rel="shortcut icon"/>
+ <link href="../../../assets/css/id.css" rel="stylesheet"/>
+ <link href="../../../assets/css/main.css" rel="stylesheet"/>
+</head>
+<body>
+ 
+ <div class="top_grid">
+  <div class="action_grid">
+   <img class="back_img" src="../../../assets/img/back.png"/>
+   <p class="back_text" onclick="window.location.href='home.html'">Dokumenty</p>
+  </div>
+  <p class="title_text">mDowód</p>
+  <img class="help_img" src="../../../assets/img/help-blue.png"/>
+ </div>
+
+ 
+ <div class="bottom_bar">
+  <div class="bottom_bar_grid">
+   <div class="bottom_element_grid" send="home">
+    <div class="bottom_element_image home_open home"></div>
+    <p class="bottom_element_text open">Dokumenty</p>
+   </div>
+   <div class="bottom_element_grid" send="services">
+    <div class="bottom_element_image services"></div>
+    <p class="bottom_element_text">Usługi</p>
+   </div>
+   <div class="bottom_element_grid" send="qr">
+    <div class="bottom_element_image qr"></div>
+    <p class="bottom_element_text">Kod QR</p>
+   </div>
+   <div class="bottom_element_grid" send="more">
+    <div class="bottom_element_image more"></div>
+    <p class="bottom_element_text">Więcej</p>
+   </div>
+  </div>
+ </div>
+
+ 
+ <p class="time_text" id="time"></p>
+
+ 
+ <div class="id_image_data">
+  <img class="id_image" draggable="false" src="../../../assets/img/id-bg.jpeg"/>
+  <div class="inset"></div>
+  <div class="id_own_image" style="background-image: url('zdjecie.png');"></div>
+  <img class="flag_video" draggable="false" src="../../../assets/img/flag.gif"/>
+  <img class="eagle_video" draggable="false" src="../../../assets/img/eagle.gif"/>
+  <p class="eagle_text">Rzeczpospolita<br/>Polska</p>
+
+  
+  <div class="id_data_grid">
+   <div class="data_holder">
+    <p class="data_title firstname" id="name">{IMIE}</p>
+    <p class="data_value">Imię (imiona)</p>
+   </div>
+   <div class="data_holder">
+    <p class="data_title surname" id="surname">{NAZWISKO}</p>
+    <p class="data_value">Nazwisko</p>
+   </div>
+   <div class="data_holder">
+    <p class="data_title" id="nationality">POLSKIE</p>
+    <p class="data_value">Obywatelstwo</p>
+   </div>
+   <div class="data_holder">
+    <p class="data_title" id="birthday">{BIRTHDATE}</p>
+    <p class="data_value">Data urodzenia</p>
+   </div>
+   <div class="data_holder">
+    <p class="data_title" id="pesel">{PESEL}</p>
+    <p class="data_value">Numer PESEL</p>
+   </div>
+  </div>
+ </div>
+
+ 
+ <div class="id_bottom">
+  <div class="bottom_grid">
+   <img class="bottom_image" src="../../../assets/img/valid.png"/>
+   <p class="bottom_text" style="color: #17bf2d; font-size: 17px;">Dokument ważny</p>
+  </div>
+ </div>
+
+ 
+ <div class="top-buttons">
+  <button onclick="window.location.href='qr.html'">
+   <div class="icon-circle">
+    <img alt="Potwierdź" src="../../../assets/img/confirm.png"/>
+   </div>
+   <span>Potwierdź<br/>swoje dane</span>
+  </button>
+  <button onclick="openPage(1)">
+   <div class="icon-circle">
+    <img alt="Dowód" src="../../../assets/img/doc-icon.png"/>
+   </div>
+   <span>Dane<br/>dowodu<br/>osobistego</span>
+  </button>
+  <button>
+   <div class="icon-circle">
+    <img alt="PESEL" src="../../../assets/img/pesel-icon.png"/>
+   </div>
+   <span>Zastrzeż PESEL</span>
+  </button>
+  <button>
+   <div class="icon-circle">
+    <img alt="Więcej" src="../../../assets/img/dots.png"/>
+   </div>
+   <span>Pozostałe skróty</span>
+  </button>
+ </div>
+
+ 
+ <div class="card custom-card">
+  <div class="field">
+   <label>Seria i numer mDowodu</label>
+   <div class="value-copy">
+    <div>
+     <b style="font-size:27px">MWYC 24561</b>
+     <br/>
+     <label style="font-size:14px">Dane mDowodu i dowodu<br/>osobistego są inne - to dwa różne<br/>dokumenty.</label>
+    </div>
+    <button class="value-copy">Kopiuj</button>
+   </div>
+  </div>
+  <div class="field">
+   <label>Termin ważności</label>
+   <strong>2027-10-23</strong>
+  </div>
+  <div class="field">
+   <label>Data wydania</label>
+   <strong>2017-10-23</strong>
+  </div>
+  <div class="field">
+   <label>Imię ojca</label>
+   <strong>FRANCISZEK</strong>
+  </div>
+  <div class="field">
+   <label>Imię matki</label>
+   <strong>ALEKSANDRA</strong>
+  </div>
+ </div>
+
+ 
+ <div class="bottom_holder info_holder">
+  <div class="bottom_grid">
+   <p class="bottom_text" style="color: var(--font); margin-left: 0px;">Twoje dodatkowe dane</p>
+  </div>
+  <img class="action_arrow" src="../../../assets/img/chevron.png"/>
+  <div class="additional_holder">
+   <div class="additional_grid">
+    <p class="additional_title">Nazwisko rodowe</p>
+    <p class="additional_subtitle" id="familyName">{NAZWISKO}</p>
+   </div>
+   <div class="additional_grid">
+    <p class="additional_title">Płeć</p>
+    <p class="additional_subtitle" id="sex">{PŁEĆ}</p>
+   </div>
+   <div class="additional_grid">
+    <p class="additional_title">Nazwisko rodowe ojca</p>
+    <p class="additional_subtitle" id="fathersFamilyName">{NAZWISKO}</p>
+   </div>
+   <div class="additional_grid">
+    <p class="additional_title">Nazwisko rodowe matki</p>
+    <p class="additional_subtitle" id="mothersFamilyName">Nowak</p>
+   </div>
+   <div class="additional_grid">
+    <p class="additional_title">Miejsce urodzenia</p>
+    <p class="additional_subtitle" id="birthPlace">Kraków</p>
+   </div>
+   <div class="additional_grid">
+    <p class="additional_title">Kraj urodzenia</p>
+    <p class="additional_subtitle" id="countryOfBirth">Polska</p>
+   </div>
+   <div class="additional_grid">
+    <p class="additional_title">Adres zameldowania na pobyt stały</p>
+    <p class="additional_subtitle" id="adress">Rakowicka 96<br>31-511, Kraków</p>
+   </div>
+   <div class="additional_grid" style="border-bottom: none;">
+    <p class="additional_title">Data zameldowania na pobyt stały</p>
+    <p class="additional_subtitle home_date">2023-11-22</p>
+   </div>
+  </div>
+ </div>
+
+ 
+ <div class="bottom_holder" style="height: 90px; margin-bottom: 5px;">
+  <div class="bottom_update">
+   <div class="bottom_update_grid">
+    <p class="bottom_update_text" style="margin-left: 0px;">Ostatnia aktualizacja</p>
+    <p class="bottom_update_value" style="margin-left: 0px;"></p>
+   </div>
+   <button class="main_button update">Aktualizuj</button>
+  </div>
+ </div>
+
+ 
+ <div style="height: 8px; margin-bottom: 120px;"></div>
+
+ 
+ <div class="confirm">
+  <div class="opacity" onclick="closePage()"></div>
+  <div class="page page_1 page_other" style="overflow-y: auto;">
+   <p class="confirm_title">Dane dowodu osobistego</p>
+   <div class="confirm_info">
+    <div class="confirm_box">
+     <p class="box_top">Seria i numer</p>
+     <p class="box_value box_highlight">TRF894293</p>
+     <button class="main_button_filled">Kopiuj</button>
+    </div>
+    <div class="confirm_box">
+     <p class="box_top">Organ wydający</p>
+     <p class="box_value">PREZYDENT MIASTA KRAKOWA</p>
+    </div>
+    <div class="confirm_box">
+     <p class="box_top">Termin ważności</p>
+     <p class="box_value">2027-10-23</p>
+    </div>
+    <div class="confirm_box" style="border-bottom: none;">
+     <p class="box_top">Data wydania</p>
+     <p class="box_value">2017-10-23</p>
+    </div>
+   </div>
+   <br>
+   <p class="confirm_close" onclick="closePage()">Zamknij</p>
+   <br><br>
+  </div>
+ </div>
+
+ 
+ <script src="../../../assets/js/nav.js"></script>
+ <script>
+  var confirmEl = document.querySelector(".confirm");
+
+  function closePage(){
+    confirmEl.classList.remove("page_open","page_1_open","page_2_open","page_3_open");
+  }
+
+  function openPage(p){
+    closePage();
+    confirmEl.classList.add("page_open","page_" + p + "_open");
+  }
+
+  // Clock
+  var time = document.getElementById("time");
+  var dOpts = { year: 'numeric', month: 'numeric', day: '2-digit' };
+  var tOpts = { second: 'numeric', minute: 'numeric', hour: '2-digit' };
+
+  if (!localStorage.getItem("update")){
+    localStorage.setItem("update", "21.05.2025");
+  }
+
+  var date = new Date();
+  var updateText = document.querySelector(".bottom_update_value");
+  updateText.innerHTML = localStorage.getItem("update");
+
+  document.querySelector(".update").addEventListener('click', function() {
+    var d = new Date().toLocaleDateString("pl-PL", dOpts);
+    localStorage.setItem("update", d);
+    updateText.innerHTML = d;
+    scroll(0, 0);
+  });
+
+  function tick(){
+    date = new Date();
+    time.innerHTML = "Czas: " + date.toLocaleTimeString("pl-PL", tOpts) + " " + date.toLocaleDateString("pl-PL", dOpts);
+    setTimeout(tick, 1000);
+  }
+  tick();
+
+  // Collapsible
+  var fold = document.querySelector(".info_holder");
+  fold.addEventListener('click', function() {
+    fold.classList.toggle("unfolded");
+  });
+
+  // Bottom nav highlight
+  (function(){
+    try {
+      var tab = 'home';
+      document.querySelectorAll('.bottom_element_image').forEach(function(img){
+        ['home_open','services_open','qr_open','more_open'].forEach(function(c){ img.classList.remove(c); });
+      });
+      document.querySelectorAll('.bottom_element_text').forEach(function(t){ t.classList.remove('open'); });
+      document.querySelectorAll('.bottom_element_grid').forEach(function(el){
+        var s = el.getAttribute('send');
+        if(s===tab){
+          var img = el.querySelector('.bottom_element_image');
+          var txt = el.querySelector('.bottom_element_text');
+          if(img) img.classList.add(tab+'_open');
+          if(txt) txt.classList.add('open');
+        }
+      });
+    } catch(e){}
+  })();
+ </script>
+ <script src="../../../assets/js/manifest.js"></script>
+</body>
+</html>

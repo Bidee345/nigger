@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <meta charset="utf-8"/>
+  <title>mObywatel</title>
+  <link href="../../../assets/css/qr.css" rel="stylesheet"/>
+  <link href="../../../assets/css/main.css" rel="stylesheet"/>
+  <link href="../../../assets/img/favicon.png" rel="icon" type="image/x-icon"/>
+  <link href="../../../assets/img/favicon.png" rel="apple-touch-icon"/>
+  <link href="../../../assets/img/favicon.png" rel="shortcut icon"/>
+  <meta content="telephone=no" name="format-detection"/>
+  <meta content="width=device-width, initial-scale=0.8, user-scalable=no" name="viewport"/>
+  <meta content="yes" name="mobile-web-app-capable"/>
+ </head>
+ <body>
+  <div class="bottom_bar">
+   <div class="bottom_bar_grid">
+    <div class="bottom_element_grid" send="home">
+     <div class="bottom_element_image home"></div>
+     <p class="bottom_element_text">Dokumenty</p>
+    </div>
+    <div class="bottom_element_grid" send="services">
+     <div class="bottom_element_image services"></div>
+     <p class="bottom_element_text">Usługi</p>
+    </div>
+    <div class="bottom_element_grid" send="qr">
+     <div class="bottom_element_image qr_open qr"></div>
+     <p class="bottom_element_text open">Kod QR</p>
+    </div>
+    <div class="bottom_element_grid" send="more">
+     <div class="bottom_element_image more"></div>
+     <p class="bottom_element_text">Więcej</p>
+    </div>
+   </div>
+  </div>
+  <div class="container">
+   <div class="page_top">
+    <img class="main_page_logo" src="../../../assets/img/logo-lg.png"/>
+   </div>
+   <p class="main_title">Kod QR</p>
+   <p class="description_qr">Dzięki tej funkcji zalogujesz się do usług w internecie i potwierdzisz cyfrowe dokumenty - zarówno swoje, jak i drugiej osoby.</p>
+   <div class="action_grid">
+    <div class="action" onclick="go('scan')" style="border: none;">
+     <img class="action_image" src="../../../assets/img/scan-icon.png"/>
+     <div class="action_text">
+      <p class="action_title">Zeskanuj kod QR</p>
+      <p class="action_subtitle" style="width: 100%;">Zaloguj się do strony internetowej lub potwierdź swój cyfrowy dokument.</p>
+     </div>
+     <img class="arrow" src="../../../assets/img/arrow.png"/>
+    </div>
+    <div class="action" onclick="go('show')">
+     <img class="action_image" src="../../../assets/img/show-icon.png"/>
+     <div class="action_text">
+      <p class="action_title">Pokaż kod QR</p>
+      <p class="action_subtitle" style="width: 90%;">Sprawdź cyfrowy dokument drugiej osoby.</p>
+     </div>
+     <img class="arrow" src="../../../assets/img/arrow.png"/>
+    </div>
+   </div>
+  </div>
+  <script src="../../../assets/js/nav.js"></script>
+  <script src="../../../assets/js/manifest.js"></script>
+  <script src="../../../assets/js/session.js"></script>
+ </body>
+</html>
